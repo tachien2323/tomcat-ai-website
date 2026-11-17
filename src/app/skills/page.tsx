@@ -112,9 +112,16 @@ export default function SkillsPage() {
         <div className="lg:col-span-9 space-y-8">
           {/* Top Hero Card */}
           <div className="rounded-3xl bg-gradient-to-br from-[#0a1633] via-[#060b18] to-[#231208] border border-blue-800/70 p-6 sm:p-10 space-y-6 shadow-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span>THƯ VIỆN CLAUDE CODE, ANTIGRAVITY & AI AGENTS</span>
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 leading-snug">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+              <span>
+                <span className="block sm:inline whitespace-nowrap">
+                  THƯ VIỆN CLAUDE CODE, ANTIGRAVITY
+                </span>
+                <span className="block sm:inline whitespace-nowrap sm:ml-1">
+                  &amp; AI WORKFLOWS
+                </span>
+              </span>
             </div>
 
             <div className="space-y-2">

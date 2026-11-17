@@ -557,9 +557,16 @@ export default function HomePage() {
           <div className="rounded-3xl bg-gradient-to-br from-[#081229] via-[#050811] to-[#1f120b] border border-blue-800/70 p-6 sm:p-10 space-y-8 shadow-2xl">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
               <div className="space-y-3 max-w-2xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-[11px] sm:text-xs font-bold">
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-[11px] sm:text-xs font-bold leading-snug">
                   <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                  <span>THƯ VIỆN CLAUDE CODE, ANTIGRAVITY &amp; AI WORKFLOWS</span>
+                  <span>
+                    <span className="block sm:inline whitespace-nowrap">
+                      THƯ VIỆN CLAUDE CODE, ANTIGRAVITY
+                    </span>
+                    <span className="block sm:inline whitespace-nowrap sm:ml-1">
+                      &amp; AI WORKFLOWS
+                    </span>
+                  </span>
                 </div>
                 <h2 className="text-xl sm:text-4xl font-extrabold text-white leading-tight whitespace-nowrap">
                   AI{" "}
