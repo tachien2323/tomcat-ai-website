@@ -93,12 +93,14 @@ export function Navbar() {
             <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-orange-500 group-hover:border-orange-400 transition shadow-md bg-[#0f295c] flex items-center justify-center shrink-0">
               <img
                 src={
-                  brand.avatarUrl && !brand.avatarUrl.includes("unsplash.com")
+                  brand.avatarUrl &&
+                  !brand.avatarUrl.includes("unsplash.com") &&
+                  brand.avatarUrl !== "/avatar-tomcat.jpg"
                     ? brand.avatarUrl
-                    : "/avatar-tomcat.jpg"
+                    : "/tomcat-logo.jpg"
                 }
                 alt={brand.brandName}
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             <div>

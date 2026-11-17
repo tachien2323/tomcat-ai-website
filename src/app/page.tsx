@@ -308,40 +308,42 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="pt-4 border-t theme-border flex flex-wrap items-center gap-3">
-                  <a
-                    href={brand.contact.youtubeUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition shadow-md"
-                  >
-                    <Youtube className="w-4 h-4" />
-                    Kênh YouTube
-                  </a>
-                  <a
-                    href={brand.contact.facebookUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-700 hover:bg-blue-600 text-white text-xs font-bold transition shadow-md"
-                  >
-                    <Facebook className="w-4 h-4" />
-                    Facebook
-                  </a>
-                  <a
-                    href={brand.contact.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0d1936] hover:bg-blue-900 text-white text-xs font-bold border border-blue-700/70 transition"
-                  >
-                    <Github className="w-4 h-4" />
-                    GitHub
-                  </a>
+                <div className="pt-4 border-t theme-border flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
+                  <div className="grid grid-cols-3 gap-2 w-full sm:w-auto sm:flex sm:items-center sm:gap-3">
+                    <a
+                      href={brand.contact.youtubeUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition shadow-md whitespace-nowrap"
+                    >
+                      <Youtube className="w-4 h-4 shrink-0" />
+                      <span>YouTube</span>
+                    </a>
+                    <a
+                      href={brand.contact.facebookUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-xl bg-blue-700 hover:bg-blue-600 text-white text-xs font-bold transition shadow-md whitespace-nowrap"
+                    >
+                      <Facebook className="w-4 h-4 shrink-0" />
+                      <span>Facebook</span>
+                    </a>
+                    <a
+                      href={brand.contact.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-xl bg-[#0d1936] hover:bg-blue-900 text-white text-xs font-bold border border-blue-700/70 transition whitespace-nowrap"
+                    >
+                      <Github className="w-4 h-4 shrink-0" />
+                      <span>GitHub</span>
+                    </a>
+                  </div>
                   <Link
                     href="/about"
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-orange-500/15 hover:bg-orange-500/25 text-orange-400 border border-orange-500/40 text-xs font-bold transition ml-auto"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-orange-500/15 hover:bg-orange-500/25 text-orange-400 border border-orange-500/40 text-xs font-bold transition sm:ml-auto whitespace-nowrap"
                   >
                     <span>Xem hồ sơ năng lực chi tiết</span>
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-4 h-4 shrink-0" />
                   </Link>
                 </div>
               </div>

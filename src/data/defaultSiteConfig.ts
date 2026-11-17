@@ -41,7 +41,7 @@ export const defaultSiteConfig: SiteConfig = {
       "Với phương châm biến những công nghệ AI phức tạp thành các quy trình, bộ công cụ (Skills, Agents, Prompts, Workflows) đơn giản, dễ áp dụng ngay lập tức, TOM CAT AI giúp bạn tiết kiệm hàng chục giờ làm việc mỗi tuần.",
       "Tại website này, bạn có thể tự do khám phá kho lưu trữ hơn 1.000+ GitHub Repo chọn lọc, hàng trăm AI Templates/Skills sẵn sàng sử dụng, lộ trình học AI miễn phí từ con số 0 và các giải pháp tư vấn chuyển đổi AI chuyên biệt cho doanh nghiệp.",
     ],
-    avatarUrl: "/avatar-tomcat.jpg",
+    avatarUrl: "/tomcat-logo.jpg",
     speakerImageUrl:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format&fit=crop&q=80",
     stats: [
