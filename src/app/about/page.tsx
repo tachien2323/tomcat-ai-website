@@ -13,13 +13,15 @@ import {
 } from "lucide-react";
 import { useSiteConfig } from "@/context/SiteConfigContext";
 
+const COMP_ICONS = [Cpu, Code2, Briefcase, GraduationCap];
+
 export default function AboutPage() {
   const { config } = useSiteConfig();
   const { brand, services } = config;
 
-  const coreCompetencies = [
+  const coreCompetencies = config.competencies || [
     {
-      icon: Cpu,
+      id: "comp-1",
       title: "Kiến Trúc AI Agent & MCP",
       items: [
         "Thiết kế hệ thống Đa tác tử (Multi-Agent) tự hành",
@@ -28,7 +30,7 @@ export default function AboutPage() {
       ],
     },
     {
-      icon: Code2,
+      id: "comp-2",
       title: "Vibe Coding & Phát Triển Sản Phẩm Số",
       items: [
         "Xây dựng Website, Cổng thông tin & Web App bằng Next.js, TypeScript",
@@ -37,7 +39,7 @@ export default function AboutPage() {
       ],
     },
     {
-      icon: Briefcase,
+      id: "comp-3",
       title: "Tự Động Hóa Quy Trình Doanh Nghiệp",
       items: [
         "Tích hợp n8n, Make, Webhook tự động hóa Marketing & Chăm sóc khách hàng",
@@ -46,7 +48,7 @@ export default function AboutPage() {
       ],
     },
     {
-      icon: GraduationCap,
+      id: "comp-4",
       title: "Đào Tạo & Chuyển Giao Tư Duy AI",
       items: [
         "Đào tạo AI In-house thực chiến cho các phòng ban doanh nghiệp",
@@ -59,7 +61,7 @@ export default function AboutPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
       {/* Hero Profile Card */}
-      <div className="theme-surface border rounded-3xl overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12">
+      <div className="theme-surface border rounded-3xl overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12 relative">
         <div className="lg:col-span-5 relative min-h-[340px] bg-gradient-to-br from-blue-950 via-slate-950 to-orange-950 p-8 flex flex-col justify-end">
           <img
             src={brand.speakerImageUrl}
@@ -99,7 +101,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             {brand.stats.map((st, i) => (
               <div key={i} className="p-3.5 rounded-2xl theme-elevated border text-center">
-                <div className="text-xl font-extrabold text-orange-400">{st.value}</div>
+                <div className="text-xl font-extrabold text-tomcat-blend">{st.value}</div>
                 <div className="text-[11px] theme-text-muted mt-0.5">{st.label}</div>
               </div>
             ))}
@@ -113,22 +115,22 @@ export default function AboutPage() {
           <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600/20 text-blue-400">
             Core Competencies
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold">
-            Năng Lực Chuyên Môn &{" "}
-            <span className="text-orange-500">Hệ Sinh Thái AI</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
+            Năng Lực Chuyên Môn &amp;{" "}
+            <span className="text-tomcat-blend whitespace-nowrap">Hệ Sinh Thái AI</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {coreCompetencies.map((comp, idx) => {
-            const Icon = comp.icon;
+            const Icon = COMP_ICONS[idx % COMP_ICONS.length];
             return (
               <div
-                key={idx}
+                key={comp.id || idx}
                 className="theme-surface border rounded-3xl p-6 sm:p-8 space-y-4 shadow-lg hover:border-orange-500/70 transition"
               >
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-800 to-orange-600 flex items-center justify-center text-white shadow-md">
-                  <Icon className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-tomcat-blend flex items-center justify-center text-slate-950 shadow-md">
+                  <Icon className="w-6 h-6 stroke-[2.2]" />
                 </div>
                 <h3 className="text-xl font-extrabold">{comp.title}</h3>
                 <ul className="space-y-2.5">

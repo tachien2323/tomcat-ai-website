@@ -220,9 +220,22 @@ export interface SocialChannelItem {
   enabled: boolean;
 }
 
+export interface CompetencyItem {
+  id: string;
+  title: string;
+  items: string[];
+}
+
+export interface AdminAuthConfig {
+  username: string;
+  password: string;
+}
+
 export interface SiteConfig {
+  adminAuth?: AdminAuthConfig;
   features: FeatureFlags;
   brand: BrandProfile;
+  competencies?: CompetencyItem[];
   services: ServiceItem[];
   aiTools: AiToolItem[];
   skills: SkillTemplateItem[];

@@ -16,14 +16,17 @@ export default function KhoaHocAiPage() {
           <BookOpen className="w-4 h-4" />
           <span>CHƯƠNG TRÌNH ĐÀO TẠO CỘNG ĐỒNG MIỄN PHÍ</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white">
-          Làm Chủ AI Thực Chiến Từ Con Số 0 Cùng{" "}
-          <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
-            {config.brand.brandName}
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+          <span className="block">Làm Chủ AI Thực Chiến Từ Con Số 0</span>
+          <span className="mt-1 block">
+            Cùng{" "}
+            <span className="text-tomcat-blend whitespace-nowrap">
+              {config.brand.brandName}
+            </span>
           </span>
         </h1>
-        <p className="text-sm sm:text-base text-slate-300 max-w-3xl mx-auto">
-          Lộ trình 18 bài học chia theo 4 cấp độ từ Nhập môn Prompt Engineering, Thiết lập Không gian AI, Huấn luyện Văn phong đến Vibe Coding & Tự động hóa Doanh nghiệp.
+        <p className="text-sm sm:text-base text-slate-300 max-w-3xl mx-auto text-balance">
+          Lộ trình 18 bài học chia theo 4 cấp độ từ Nhập môn Prompt Engineering, Thiết lập Không gian AI, Huấn luyện Văn phong đến Vibe Coding &amp; Tự động hóa Doanh nghiệp.
         </p>
       </div>
 

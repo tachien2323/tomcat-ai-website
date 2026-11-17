@@ -150,15 +150,15 @@ export default function HomePage() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-balance">
             <span className="block">{brand.heroTitlePrefix}</span>
-            <span className="mt-2 block bg-gradient-to-r from-orange-500 via-amber-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="mt-2 block text-tomcat-blend whitespace-nowrap">
               {brand.heroTitleHighlight}
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="max-w-3xl mx-auto text-sm sm:text-base lg:text-lg theme-text-muted leading-relaxed">
+          <p className="max-w-3xl mx-auto text-sm sm:text-base lg:text-lg theme-text-muted leading-relaxed text-balance">
             {brand.heroSubtitle}
           </p>
 
@@ -169,7 +169,7 @@ export default function HomePage() {
                 key={idx}
                 className="theme-surface border rounded-2xl p-4 shadow-md hover:border-orange-500/60 transition"
               >
-                <div className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
+                <div className="text-2xl sm:text-3xl font-extrabold text-tomcat-blend">
                   {st.value}
                 </div>
                 <div className="text-xs theme-text-muted font-medium mt-1">{st.label}</div>
@@ -256,13 +256,6 @@ export default function HomePage() {
                     Giải Pháp Doanh Nghiệp (B2B)
                   </a>
                 )}
-                <Link
-                  href="/admin"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-blue-950/80 text-blue-200 border border-blue-700/70 hover:border-orange-400 transition"
-                >
-                  <Settings2 className="w-3.5 h-3.5 text-orange-400" />
-                  Tùy chỉnh Backend
-                </Link>
               </div>
             </div>
           )}
@@ -361,14 +354,15 @@ export default function HomePage() {
             <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600/20 text-blue-400 border border-blue-500/30">
               Giải Pháp Cho Doanh Nghiệp & Cá Nhân
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold">
-              Đồng Hành Chuyển Đổi & Ứng Dụng{" "}
-              <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
+              <span className="block">Đồng Hành Chuyển Đổi &amp; Ứng Dụng</span>
+              <span className="mt-1 block text-tomcat-blend whitespace-nowrap">
                 AI Thực Chiến
               </span>
             </h2>
-            <p className="text-sm sm:text-base theme-text-muted">
-              Thiết kế lộ trình đào tạo, xây dựng hệ thống AI Agent tự động hóa quy trình giúp doanh nghiệp và cá nhân bứt phá năng suất.
+            <p className="text-sm sm:text-base theme-text-muted max-w-2xl mx-auto text-balance">
+              Thiết kế lộ trình đào tạo, xây dựng hệ thống AI Agent tự động hóa quy trình giúp doanh nghiệp và{" "}
+              <span className="whitespace-nowrap">cá nhân bứt phá năng suất.</span>
             </p>
           </div>
 
@@ -428,14 +422,15 @@ export default function HomePage() {
             <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-500/20 text-orange-400 border border-orange-500/30">
               AI Tools Directory
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold">
-              Công Cụ AI Tôi Sử Dụng &{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
+              Công Cụ AI Tôi Sử Dụng &amp;{" "}
+              <span className="text-tomcat-blend whitespace-nowrap">
                 Khuyên Dùng
               </span>
             </h2>
-            <p className="text-sm sm:text-base theme-text-muted">
-              Danh sách các công cụ AI tốt nhất phục vụ lập trình, sản xuất video, giọng nói, nghiên cứu và tự động hóa công việc hàng ngày.
+            <p className="text-sm sm:text-base theme-text-muted max-w-2xl mx-auto text-balance">
+              Danh sách các công cụ AI tốt nhất phục vụ lập trình, sản xuất video, giọng nói, nghiên cứu và{" "}
+              <span className="whitespace-nowrap">tự động hóa công việc hàng ngày.</span>
             </p>
           </div>
 
@@ -483,15 +478,7 @@ export default function HomePage() {
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-2">
-                    <div
-                      className={`w-11 h-11 rounded-xl flex items-center justify-center font-extrabold text-sm text-white shadow-md ${
-                        tool.accentColor === "orange"
-                          ? "bg-gradient-to-br from-orange-600 to-amber-500"
-                          : tool.accentColor === "emerald"
-                          ? "bg-gradient-to-br from-emerald-600 to-teal-500"
-                          : "bg-gradient-to-br from-blue-800 to-indigo-600"
-                      }`}
-                    >
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center font-extrabold text-sm text-slate-950 shadow-md bg-tomcat-blend">
                       {tool.iconText}
                     </div>
                     {tool.badge && (
@@ -550,10 +537,10 @@ export default function HomePage() {
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>THƯ VIỆN CLAUDE CODE, ANTIGRAVITY & AI WORKFLOWS</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                   AI{" "}
-                  <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
-                    TEMPLATES & SKILLS
+                  <span className="text-tomcat-blend whitespace-nowrap">
+                    TEMPLATES &amp; SKILLS
                   </span>
                 </h2>
                 <p className="text-sm sm:text-base text-slate-300">
@@ -624,9 +611,9 @@ export default function HomePage() {
                 <Github className="w-3.5 h-3.5" />
                 <span>OPEN SOURCE AI DIRECTORY</span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold">
+              <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
                 Kho GitHub Repo{" "}
-                <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
+                <span className="text-tomcat-blend whitespace-nowrap">
                   Hàng Đầu
                 </span>
               </h2>
@@ -707,9 +694,9 @@ export default function HomePage() {
             <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-500/20 text-orange-400 border border-orange-500/30">
               Custom GPTs & Specialized Agents
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold">
-              Bộ GPT & Trợ Lý AI{" "}
-              <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
+              Bộ GPT &amp; Trợ Lý AI{" "}
+              <span className="text-tomcat-blend whitespace-nowrap">
                 Độc Quyền
               </span>
             </h2>
@@ -783,9 +770,9 @@ export default function HomePage() {
               <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/30">
                 Video Tutorials
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold">
+              <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
                 Video Hướng Dẫn{" "}
-                <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
+                <span className="text-tomcat-blend whitespace-nowrap">
                   Mới Nhất
                 </span>
               </h2>
@@ -902,14 +889,15 @@ export default function HomePage() {
             <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
               100% Miễn Phí · Học Từ Con Số 0
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold">
+            <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
               Khóa Học AI Thực Chiến{" "}
-              <span className="bg-gradient-to-r from-orange-500 to-blue-400 bg-clip-text text-transparent">
+              <span className="text-tomcat-blend whitespace-nowrap">
                 4 Cấp Độ
               </span>
             </h2>
-            <p className="text-sm sm:text-base theme-text-muted">
-              18 bài học được thiết kế bài bản giúp bạn làm chủ tư duy Prompt, thiết lập không gian làm việc AI, huấn luyện văn phong và tự động hóa công việc.
+            <p className="text-sm sm:text-base theme-text-muted max-w-2xl mx-auto text-balance">
+              18 bài học được thiết kế bài bản giúp bạn làm chủ tư duy Prompt, thiết lập không gian làm việc AI, huấn luyện văn phong và{" "}
+              <span className="whitespace-nowrap">tự động hóa công việc.</span>
             </p>
           </div>
 
@@ -1030,9 +1018,9 @@ export default function HomePage() {
               <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600/20 text-blue-400 border border-blue-500/30">
                 Articles & Playbooks
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold">
-                Bài Viết & Hướng Dẫn{" "}
-                <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
+                Bài Viết &amp; Hướng Dẫn{" "}
+                <span className="text-tomcat-blend whitespace-nowrap">
                   Chuyên Sâu
                 </span>
               </h2>
@@ -1109,9 +1097,9 @@ export default function HomePage() {
                 <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600/20 text-blue-400">
                   Community
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold">
+                <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight">
                   Tham Gia Cộng Đồng{" "}
-                  <span className="text-orange-500">{brand.brandName}</span>
+                  <span className="text-tomcat-blend whitespace-nowrap">{brand.brandName}</span>
                 </h2>
               </div>
 

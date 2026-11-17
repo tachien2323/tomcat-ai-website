@@ -117,13 +117,13 @@ export default function SkillsPage() {
             </div>
 
             <div className="space-y-2">
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 AI{" "}
-                <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
-                  TEMPLATES & SKILLS
+                <span className="text-tomcat-blend whitespace-nowrap">
+                  TEMPLATES &amp; SKILLS
                 </span>
               </h1>
-              <p className="text-sm sm:text-base text-slate-300 max-w-2xl">
+              <p className="text-sm sm:text-base text-slate-300 max-w-2xl text-balance">
                 Khám phá, chọn và kết hợp các cấu hình AI, System Prompts, Subagents và MCP hữu ích cho công việc và dự án của bạn.
               </p>
             </div>

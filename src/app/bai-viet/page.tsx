@@ -42,13 +42,13 @@ export default function BaiVietPage() {
           <FileText className="w-4 h-4" />
           <span>KNOWLEDGE BASE & PLAYBOOKS</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white">
-          Bài Viết & Playbook{" "}
-          <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+          Bài Viết &amp; Playbook{" "}
+          <span className="text-tomcat-blend whitespace-nowrap">
             Ứng Dụng AI
           </span>
         </h1>
-        <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
+        <p className="text-sm sm:text-base text-slate-300 max-w-3xl text-balance">
           Chia sẻ kiến thức thực chiến, lộ trình AI Agent, kỹ thuật huấn luyện văn phong và các case study tự động hóa doanh nghiệp từ {config.brand.brandName}.
         </p>
       </div>

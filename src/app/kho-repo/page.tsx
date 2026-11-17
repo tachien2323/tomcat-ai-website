@@ -42,13 +42,13 @@ export default function KhoRepoPage() {
           <Github className="w-4 h-4" />
           <span>OPEN SOURCE AI REPOSITORY VAULT</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
           Kho GitHub Repo{" "}
-          <span className="bg-gradient-to-r from-orange-500 to-blue-400 bg-clip-text text-transparent">
+          <span className="text-tomcat-blend whitespace-nowrap">
             Hàng Đầu
           </span>
         </h1>
-        <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
+        <p className="text-sm sm:text-base text-slate-300 max-w-3xl text-balance">
           Danh bạ các dự án mã nguồn mở chất lượng nhất về AI Agents, Vibe Coding, Workflow Automation, RAG, LLM và MCP được tuyển chọn bởi {config.brand.brandName}.
         </p>
       </div>

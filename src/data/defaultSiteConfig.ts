@@ -1,6 +1,10 @@
 import { SiteConfig } from "@/types/site";
 
 export const defaultSiteConfig: SiteConfig = {
+  adminAuth: {
+    username: "admin",
+    password: "H@giang1989",
+  },
   features: {
     heroQuickPills: true,
     aboutSection: true,
@@ -76,6 +80,44 @@ export const defaultSiteConfig: SiteConfig = {
       link: "/skills",
     },
   },
+  competencies: [
+    {
+      id: "comp-1",
+      title: "Kiến Trúc AI Agent & MCP",
+      items: [
+        "Thiết kế hệ thống Đa tác tử (Multi-Agent) tự hành",
+        "Kết nối Model Context Protocol (MCP) với Google Workspace, CRM, SQL",
+        "Xây dựng RAG Chatbot nội bộ đọc hiểu hàng ngàn tài liệu doanh nghiệp",
+      ],
+    },
+    {
+      id: "comp-2",
+      title: "Vibe Coding & Phát Triển Sản Phẩm Số",
+      items: [
+        "Xây dựng Website, Cổng thông tin & Web App bằng Next.js, TypeScript",
+        "Làm chủ Claude Code, Google Antigravity, Cursor tối ưu tốc độ x10",
+        "Triển khai CI/CD tự động hóa qua GitHub & Vercel Production",
+      ],
+    },
+    {
+      id: "comp-3",
+      title: "Tự Động Hóa Quy Trình Doanh Nghiệp",
+      items: [
+        "Tích hợp n8n, Make, Webhook tự động hóa Marketing & Chăm sóc khách hàng",
+        "Xây dựng hệ thống Content Machine nhân bản nội dung đa kênh",
+        "Tự động hóa sản xuất Video AI, Nhân bản giọng nói & Avatar",
+      ],
+    },
+    {
+      id: "comp-4",
+      title: "Đào Tạo & Chuyển Giao Tư Duy AI",
+      items: [
+        "Đào tạo AI In-house thực chiến cho các phòng ban doanh nghiệp",
+        "Coaching 1-1 cho lãnh đạo, chuyên gia và chủ doanh nghiệp nhỏ",
+        "Đóng gói thư viện Prompt, Skills & SOP chuẩn hóa dễ áp dụng",
+      ],
+    },
+  ],
   services: [
     {
       id: "srv-1",

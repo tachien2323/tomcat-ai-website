@@ -90,11 +90,11 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 gap-3">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-orange-500/80 group-hover:ring-orange-400 transition shadow-lg shadow-orange-500/20 bg-gradient-to-br from-blue-900 via-slate-900 to-orange-600 flex items-center justify-center font-extrabold text-white text-sm">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-orange-500 group-hover:border-orange-400 transition shadow-md bg-[#0f295c] flex items-center justify-center font-extrabold text-white text-sm">
               TC
             </div>
             <div>
-              <span className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-white via-blue-100 to-orange-400 bg-clip-text text-transparent">
+              <span className="font-extrabold text-lg tracking-tight text-tomcat-blend">
                 {brand.brandName}
               </span>
               <span className="hidden sm:block text-[11px] text-blue-300/80 -mt-1 font-medium">
@@ -123,20 +123,6 @@ export function Navbar() {
                 <Moon className="w-4 h-4 text-blue-300" />
               )}
             </button>
-
-            {/* Backend Admin Quick Button */}
-            <Link
-              href="/admin"
-              className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold border transition ${
-                pathname === "/admin"
-                  ? "bg-blue-700 text-white border-blue-400 shadow-lg shadow-blue-600/30"
-                  : "bg-[#0d1936] hover:bg-blue-900/70 text-blue-200 border-blue-800/80"
-              }`}
-            >
-              <Settings2 className="w-3.5 h-3.5 text-orange-400" />
-              <span className="hidden md:inline">Backend Quản Trị</span>
-              <span className="md:hidden">Admin</span>
-            </Link>
 
             {/* Highlighted AI Templates CTA */}
             {features.skillsHub && (

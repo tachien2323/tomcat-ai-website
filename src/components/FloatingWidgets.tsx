@@ -18,8 +18,8 @@ export function FloatingWidgets() {
             href={brand.floatingPromoInfo.link || "/skills"}
             className="group flex items-center gap-3.5 p-3.5 rounded-2xl bg-[#070d1d]/95 backdrop-blur-md border border-orange-500/50 hover:border-orange-400 shadow-2xl shadow-orange-950/50 transition"
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 flex items-center justify-center text-white shrink-0 shadow-md shadow-orange-600/30">
-              <Sparkles className="w-5 h-5" />
+            <div className="w-11 h-11 rounded-xl bg-tomcat-blend flex items-center justify-center text-slate-950 shrink-0 shadow-md">
+              <Sparkles className="w-5 h-5 stroke-[2.2]" />
             </div>
             <div className="min-w-0 pr-1">
               <div className="flex items-center gap-1.5">

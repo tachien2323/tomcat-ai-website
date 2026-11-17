@@ -17,11 +17,11 @@ export function Footer() {
           {/* Col 1: Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-800 via-slate-900 to-orange-500 flex items-center justify-center font-extrabold text-white ring-2 ring-orange-500/60">
+              <div className="w-10 h-10 rounded-full bg-[#0f295c] border-2 border-orange-500 flex items-center justify-center font-extrabold text-white">
                 TC
               </div>
               <div>
-                <div className="font-extrabold text-lg text-white">{brand.brandName}</div>
+                <div className="font-extrabold text-lg text-tomcat-blend">{brand.brandName}</div>
                 <div className="text-xs text-blue-300/80">AI Solutions & Knowledge Hub</div>
               </div>
             </div>
@@ -159,30 +159,24 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Quản trị & Liên hệ nhanh */}
+          {/* Col 4: Liên hệ hợp tác */}
           <div className="space-y-4">
             <h3 className="text-xs font-bold uppercase tracking-wider text-orange-400">
-              Hệ Thống & Quản Trị
+              Liên Hệ & Hợp Tác
             </h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Website hỗ trợ bật/tắt linh hoạt từng phân khu và cập nhật trực tiếp nội dung trong trang quản trị Backend.
+              Đồng hành cùng Doanh nghiệp & Cá nhân trong đào tạo AI thực chiến, xây dựng hệ thống AI Agent và tự động hóa quy trình làm việc.
             </p>
-            <Link
-              href="/admin"
+            <a
+              href={`mailto:${brand.contact.email}`}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-900 to-blue-800 hover:from-blue-800 hover:to-orange-600 text-white text-xs font-semibold border border-blue-700/80 transition shadow-md"
             >
-              <Settings2 className="w-4 h-4 text-orange-400" />
-              <span>Mở Backend Quản Trị (/admin)</span>
+              <Mail className="w-4 h-4 text-orange-400" />
+              <span>{brand.contact.email}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
+            </a>
             <div className="text-xs text-slate-400 pt-1">
-              Email:{" "}
-              <a
-                href={`mailto:${brand.contact.email}`}
-                className="text-blue-300 hover:text-orange-400 underline"
-              >
-                {brand.contact.email}
-              </a>
+              Hotline / Zalo: <span className="text-blue-300 font-semibold">{brand.contact.phone}</span>
             </div>
           </div>
         </div>

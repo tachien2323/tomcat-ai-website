@@ -11,6 +11,8 @@ interface SiteConfigContextValue {
   isLoaded: boolean;
   isSaving: boolean;
   lastSavedMessage: string | null;
+  quickEditMode: boolean;
+  setQuickEditMode: (val: boolean) => void;
   updateConfig: (next: SiteConfig) => Promise<void>;
   toggleFeature: (key: keyof FeatureFlags) => Promise<void>;
   resetToDefault: () => Promise<void>;
@@ -23,6 +25,7 @@ export function SiteConfigProvider({ children }: { children: React.ReactNode }) 
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [lastSavedMessage, setLastSavedMessage] = useState<string | null>(null);
+  const [quickEditMode, setQuickEditMode] = useState<boolean>(true);
 
   useEffect(() => {
     let mounted = true;
@@ -127,6 +130,8 @@ export function SiteConfigProvider({ children }: { children: React.ReactNode }) 
         isLoaded,
         isSaving,
         lastSavedMessage,
+        quickEditMode,
+        setQuickEditMode,
         updateConfig,
         toggleFeature,
         resetToDefault,
