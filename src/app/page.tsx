@@ -143,10 +143,22 @@ export default function HomePage() {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7">
           {/* Social Proof Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0b1630]/90 border border-blue-700/60 shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-            <span className="text-xs sm:text-sm font-semibold text-blue-200">
-              {brand.heroBadge}
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 sm:py-1.5 rounded-2xl sm:rounded-full bg-[#0b1630]/90 border border-blue-700/60 shadow-lg">
+            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse shrink-0" />
+            <span className="text-xs sm:text-sm font-semibold text-blue-200 leading-snug">
+              {brand.heroBadge.includes("·") ? (
+                <>
+                  <span className="block sm:inline whitespace-nowrap">
+                    {brand.heroBadge.split("·")[0].trim()}
+                  </span>
+                  <span className="hidden sm:inline mx-1.5">·</span>
+                  <span className="block sm:inline whitespace-nowrap">
+                    {brand.heroBadge.split("·").slice(1).join("·").trim()}
+                  </span>
+                </>
+              ) : (
+                keepViCompounds(brand.heroBadge)
+              )}
             </span>
           </div>
 
