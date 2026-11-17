@@ -51,7 +51,7 @@ export const defaultSiteConfig: SiteConfig = {
       { label: "Bài Học & Playbook Free", value: "100%" },
     ],
     contact: {
-      email: "contact@tomcatai.vn",
+      email: "tomcatai360@gmail.com",
       phone: "0913526555",
       zaloUrl: "https://zalo.me/0913526555",
       address: "TP. Hồ Chí Minh & Hà Nội, Việt Nam",
@@ -64,12 +64,12 @@ export const defaultSiteConfig: SiteConfig = {
       twitterUrl: "https://x.com/tomcatai",
     },
     donationInfo: {
-      bankName: "Techcombank (Ngân hàng TMCP Kỹ Thương Việt Nam)",
-      accountNumber: "1903 8888 9999 88",
+      bankName: "VIB (Ngân hàng TMCP Quốc Tế Việt Nam)",
+      accountNumber: "0687 0406 0000021",
       accountHolder: "TOM CAT AI",
       paypalUrl: "https://paypal.me/tomcatai",
       qrImageUrl:
-        "https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=TOM_CAT_AI_DONATE_COFFEE",
+        "https://img.vietqr.io/image/VIB-068704060000021-compact2.png?accountName=TOM%20CAT%20AI&addInfo=Ung%20ho%20TOM%20CAT%20AI",
       note: "Nếu những bài viết, bộ Skills và kho Repo trên TOM CAT AI giúp ích cho công việc của bạn, hãy mời mình một ly cafe để tiếp thêm năng lượng ra mắt nhiều tài nguyên miễn phí hơn nhé!",
     },
     floatingPromoInfo: {

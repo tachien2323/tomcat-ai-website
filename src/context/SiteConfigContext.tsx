@@ -4,7 +4,7 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 import { SiteConfig, FeatureFlags } from "@/types/site";
 import { defaultSiteConfig } from "@/data/defaultSiteConfig";
 
-const STORAGE_KEY = "tomcat_ai_site_config_v2";
+const STORAGE_KEY = "tomcat_ai_site_config_v3";
 
 function mergeSiteConfig(base: SiteConfig, override: Partial<SiteConfig>): SiteConfig {
   return {
