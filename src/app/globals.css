@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+:root {
+  /* Light & Dark raw tokens (Blue Navy, Black, Orange palette) */
+  --bg-canvas-light: #f4f7fb;
+  --bg-canvas-dark: #050811;
+
+  --bg-surface-light: #ffffff;
+  --bg-surface-dark: #0b1326;
+
+  --bg-elevated-light: #eaf0fa;
+  --bg-elevated-dark: #111f3d;
+
+  --border-subtle-light: #d1dceb;
+  --border-subtle-dark: #1d315c;
+
+  --text-primary-light: #070d19;
+  --text-primary-dark: #f8fafc;
+
+  --text-secondary-light: #475569;
+  --text-secondary-dark: #94a3b8;
+
+  --brand-orange-light: #ea580c;
+  --brand-orange-dark: #f97316;
+
+  --brand-navy-light: #1e3a8a;
+  --brand-navy-dark: #2563eb;
+
+  /* Default fallback values */
+  --bg-canvas: var(--bg-canvas-light);
+  --bg-surface: var(--bg-surface-light);
+  --bg-elevated: var(--bg-elevated-light);
+  --border-subtle: var(--border-subtle-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --brand-orange: var(--brand-orange-light);
+  --brand-navy: var(--brand-navy-light);
+
+  /* Fallback for browsers without light-dark() support */
+  @media (prefers-color-scheme: dark) {
+    --bg-canvas: var(--bg-canvas-dark);
+    --bg-surface: var(--bg-surface-dark);
+    --bg-elevated: var(--bg-elevated-dark);
+    --border-subtle: var(--border-subtle-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --brand-orange: var(--brand-orange-dark);
+    --brand-navy: var(--brand-navy-dark);
+  }
+
+  /* Modern automatic light-dark() switching */
+  @supports (color: light-dark(white, black)) {
+    --bg-canvas: light-dark(var(--bg-canvas-light), var(--bg-canvas-dark));
+    --bg-surface: light-dark(var(--bg-surface-light), var(--bg-surface-dark));
+    --bg-elevated: light-dark(var(--bg-elevated-light), var(--bg-elevated-dark));
+    --border-subtle: light-dark(var(--border-subtle-light), var(--border-subtle-dark));
+    --text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
+    --text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
+    --brand-orange: light-dark(var(--brand-orange-light), var(--brand-orange-dark));
+    --brand-navy: light-dark(var(--brand-navy-light), var(--brand-navy-dark));
+  }
+
+  /* MANDATORY: Apply color-scheme to :root for viewport-wide theming */
+  color-scheme: light dark;
+
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+    --bg-canvas: var(--bg-canvas-dark);
+    --bg-surface: var(--bg-surface-dark);
+    --bg-elevated: var(--bg-elevated-dark);
+    --border-subtle: var(--border-subtle-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --brand-orange: var(--brand-orange-dark);
+    --brand-navy: var(--brand-navy-dark);
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+    --bg-canvas: var(--bg-canvas-light);
+    --bg-surface: var(--bg-surface-light);
+    --bg-elevated: var(--bg-elevated-light);
+    --border-subtle: var(--border-subtle-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --brand-orange: var(--brand-orange-light);
+    --brand-navy: var(--brand-navy-light);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Engineering Grid Background Pattern */
+.bg-engineering-grid {
+  background-size: 28px 28px;
+  background-image: 
+    linear-gradient(to right, rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+}
+
+/* Surface & Card helper classes synced to CSS variables */
+.theme-surface {
+  background-color: var(--bg-surface);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.theme-elevated {
+  background-color: var(--bg-elevated);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.theme-text-muted {
+  color: var(--text-secondary);
+}
+
+.theme-border {
+  border-color: var(--border-subtle);
+}
+
+/* Native Modal Dialog rules per modern-web-guidance */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: rgba(5, 8, 17, 0.78);
+  backdrop-filter: blur(6px);
+}

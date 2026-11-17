@@ -1,0 +1,3 @@
+Tôi muốn tạo một website cá nhân để giới thiệu về bản thân, năng lực AI, là nơi lưu giữ, chia sẻ những bài viết, đường link, repo, skill, video về lĩnh vực A  với mục tiêu đẹp, chuyên nghiệp, thu hút người xem, thể hiện được kiến thức, kinh nghiệm của cá nhân. Đôi tượng khách hàng là các doanh nghiệp, cá nhân có nhu cầu tìm hiểu và chia sẻ về các công cụ AI ứng dụng trong công viêc và cuộc sống.
+Website tham khảo là: https://phandonggiang.com Hãy nghiên cứu các tính năng, nội dung thông tin và phong cách thiết kế.
+Website sau khi được thiết kế sẽ đẩy lên github, sau đó đưa lên vercel để chạy chính thức.
