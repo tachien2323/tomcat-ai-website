@@ -52,8 +52,8 @@ export const defaultSiteConfig: SiteConfig = {
     ],
     contact: {
       email: "contact@tomcatai.vn",
-      phone: "0909 888 999",
-      zaloUrl: "https://zalo.me/0909888999",
+      phone: "0913526555",
+      zaloUrl: "https://zalo.me/0913526555",
       address: "TP. Hồ Chí Minh & Hà Nội, Việt Nam",
       youtubeUrl: "https://youtube.com/@tomcatai",
       facebookUrl: "https://facebook.com/tomcatai",

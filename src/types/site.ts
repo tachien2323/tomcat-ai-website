@@ -232,6 +232,7 @@ export interface AdminAuthConfig {
 }
 
 export interface SiteConfig {
+  updatedAt?: number;
   adminAuth?: AdminAuthConfig;
   features: FeatureFlags;
   brand: BrandProfile;

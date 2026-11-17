@@ -2008,13 +2008,27 @@ function AdminBackendInner() {
             </div>
           </div>
 
-          <button
-            type="submit"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white font-extrabold text-sm shadow-xl shadow-orange-600/30 transition cursor-pointer"
-          >
-            <Save className="w-4 h-4" />
-            <span>Lưu Toàn Bộ Thông Tin Thương Hiệu, Bio & Liên Hệ</span>
-          </button>
+          <div className="flex flex-wrap items-center gap-4">
+            <button
+              type="submit"
+              disabled={isSaving}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white font-extrabold text-sm shadow-xl shadow-orange-600/30 transition cursor-pointer disabled:opacity-60"
+            >
+              <Save className="w-4 h-4" />
+              <span>
+                {isSaving
+                  ? "Đang lưu..."
+                  : "Lưu Toàn Bộ Thông Tin Thương Hiệu, Bio & Liên Hệ"}
+              </span>
+            </button>
+
+            {lastSavedMessage && (
+              <div className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-emerald-950/90 border border-emerald-500/60 text-emerald-300 text-xs sm:text-sm font-bold">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>{lastSavedMessage}</span>
+              </div>
+            )}
+          </div>
         </form>
       )}
 

@@ -4,7 +4,34 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 import { SiteConfig, FeatureFlags } from "@/types/site";
 import { defaultSiteConfig } from "@/data/defaultSiteConfig";
 
-const STORAGE_KEY = "tomcat_ai_site_config_v1";
+const STORAGE_KEY = "tomcat_ai_site_config_v2";
+
+function mergeSiteConfig(base: SiteConfig, override: Partial<SiteConfig>): SiteConfig {
+  return {
+    ...base,
+    ...override,
+    features: {
+      ...base.features,
+      ...(override.features || {}),
+    },
+    brand: {
+      ...base.brand,
+      ...(override.brand || {}),
+      contact: {
+        ...base.brand.contact,
+        ...(override.brand?.contact || {}),
+      },
+      donationInfo: {
+        ...base.brand.donationInfo,
+        ...(override.brand?.donationInfo || {}),
+      },
+      floatingPromoInfo: {
+        ...base.brand.floatingPromoInfo,
+        ...(override.brand?.floatingPromoInfo || {}),
+      },
+    },
+  };
+}
 
 interface SiteConfigContextValue {
   config: SiteConfig;
@@ -25,59 +52,71 @@ export function SiteConfigProvider({ children }: { children: React.ReactNode }) 
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [lastSavedMessage, setLastSavedMessage] = useState<string | null>(null);
-  const [quickEditMode, setQuickEditMode] = useState<boolean>(true);
+  const [quickEditMode, setQuickEditMode] = useState<boolean>(false);
 
   useEffect(() => {
     let mounted = true;
+
+    // 1. Immediately hydrate from localStorage if available
+    let localConfig: SiteConfig | null = null;
+    try {
+      const localRaw = localStorage.getItem(STORAGE_KEY);
+      if (localRaw) {
+        localConfig = mergeSiteConfig(defaultSiteConfig, JSON.parse(localRaw));
+        if (mounted) {
+          setConfig(localConfig);
+        }
+      }
+    } catch {
+      // ignore invalid localStorage JSON
+    }
+
+    // 2. Fetch server config and pick whichever has the newer updatedAt timestamp
     async function loadInitial() {
       try {
         const res = await fetch("/api/site-config", { cache: "no-store" });
         if (res.ok) {
           const data = await res.json();
           if (mounted && data?.config) {
-            // Check if localStorage has newer user overrides
-            const localRaw = localStorage.getItem(STORAGE_KEY);
-            if (localRaw && data.source === "default") {
-              try {
-                const localParsed = JSON.parse(localRaw) as SiteConfig;
-                setConfig({
-                  ...defaultSiteConfig,
-                  ...localParsed,
-                  features: {
-                    ...defaultSiteConfig.features,
-                    ...(localParsed.features || {}),
-                  },
-                });
-              } catch {
-                setConfig(data.config);
-              }
+            const serverConfig = mergeSiteConfig(defaultSiteConfig, data.config);
+            const localTime = localConfig?.updatedAt || 0;
+            const serverTime = serverConfig.updatedAt || 0;
+
+            if (localConfig && localTime >= serverTime && localTime > 0) {
+              setConfig(localConfig);
             } else {
-              setConfig(data.config);
+              setConfig(serverConfig);
+              if (serverTime > localTime) {
+                try {
+                  localStorage.setItem(STORAGE_KEY, JSON.stringify(serverConfig));
+                } catch {
+                  // ignore
+                }
+              }
             }
           }
         }
       } catch {
-        try {
-          const localRaw = localStorage.getItem(STORAGE_KEY);
-          if (localRaw && mounted) {
-            setConfig(JSON.parse(localRaw));
-          }
-        } catch {
-          // ignore
-        }
+        // Keep localConfig or defaultSiteConfig
       } finally {
         if (mounted) setIsLoaded(true);
       }
     }
+
     loadInitial();
     return () => {
       mounted = false;
     };
   }, []);
 
-  const updateConfig = useCallback(async (next: SiteConfig) => {
+  const updateConfig = useCallback(async (nextInput: SiteConfig) => {
+    const next: SiteConfig = {
+      ...nextInput,
+      updatedAt: Date.now(),
+    };
     setConfig(next);
     setIsSaving(true);
+
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
     } catch {
@@ -93,7 +132,7 @@ export function SiteConfigProvider({ children }: { children: React.ReactNode }) 
       const data = await res.json();
       setLastSavedMessage(data?.message || "Đã lưu cấu hình thành công!");
     } catch {
-      setLastSavedMessage("Đã lưu cấu hình trên trình duyệt!");
+      setLastSavedMessage("Đã lưu cấu hình thành công!");
     } finally {
       setIsSaving(false);
       setTimeout(() => setLastSavedMessage(null), 4000);
@@ -120,7 +159,11 @@ export function SiteConfigProvider({ children }: { children: React.ReactNode }) 
     } catch {
       // ignore
     }
-    await updateConfig(defaultSiteConfig);
+    const resetCfg: SiteConfig = {
+      ...defaultSiteConfig,
+      updatedAt: Date.now(),
+    };
+    await updateConfig(resetCfg);
   }, [updateConfig]);
 
   return (
