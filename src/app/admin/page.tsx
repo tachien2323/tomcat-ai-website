@@ -176,8 +176,8 @@ const FEATURE_META: {
   },
   {
     key: "floatingCoffee",
-    title: "Nút Nổi Góc Phải (Ủng Hộ 1 Ly Cafe)",
-    description: "Nút nổi cố định ở góc dưới bên phải màn hình cuộn nhanh tới phần ủng hộ/liên hệ.",
+    title: "Nút Nổi Góc Phải (Liên Hệ Zalo Nhanh)",
+    description: "Nút nổi cố định ở góc dưới bên phải màn hình kết nối trực tiếp tới Zalo 0913526555.",
     group: "Kết nối & Tiện ích nổi",
     targetTab: "brand",
   },
