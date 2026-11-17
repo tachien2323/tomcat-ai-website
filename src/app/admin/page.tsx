@@ -1676,7 +1676,23 @@ function AdminBackendInner() {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-xs font-bold mb-1.5">
+                  Link Ảnh Logo / Avatar Tròn (Avatar URL)
+                </label>
+                <input
+                  type="text"
+                  value={brandForm.avatarUrl}
+                  onChange={(e) =>
+                    setBrandForm({
+                      ...brandForm,
+                      avatarUrl: e.target.value,
+                    })
+                  }
+                  className="w-full px-3.5 py-2.5 rounded-xl theme-elevated border text-sm"
+                />
+              </div>
               <div>
                 <label className="block text-xs font-bold mb-1.5">
                   Link Ảnh Diễn Giả / Sự Kiện (Speaker Image URL)

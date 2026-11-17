@@ -17,8 +17,16 @@ export function Footer() {
           {/* Col 1: Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#0f295c] border-2 border-orange-500 flex items-center justify-center font-extrabold text-white">
-                TC
+              <div className="w-10 h-10 rounded-full overflow-hidden bg-[#0f295c] border-2 border-orange-500 flex items-center justify-center shrink-0">
+                <img
+                  src={
+                    brand.avatarUrl && !brand.avatarUrl.includes("unsplash.com")
+                      ? brand.avatarUrl
+                      : "/avatar-tomcat.jpg"
+                  }
+                  alt={brand.brandName}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <div>
                 <div className="font-extrabold text-lg text-tomcat-blend">{brand.brandName}</div>
