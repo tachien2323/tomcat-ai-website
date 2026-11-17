@@ -33,6 +33,7 @@ import { Github, Youtube, Facebook } from "@/components/BrandIcons";
 import { useSiteConfig } from "@/context/SiteConfigContext";
 import { SkillTemplateItem } from "@/types/site";
 import { SkillDetailModal } from "@/components/SkillDetailModal";
+import { keepViCompounds } from "@/utils/viText";
 
 export default function HomePage() {
   const { config } = useSiteConfig();
@@ -150,8 +151,8 @@ export default function HomePage() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-balance">
-            <span className="block">{brand.heroTitlePrefix}</span>
+          <h1 className="text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-balance">
+            <span className="block">{keepViCompounds(brand.heroTitlePrefix)}</span>
             <span className="mt-2 block text-tomcat-blend whitespace-nowrap">
               {brand.heroTitleHighlight}
             </span>
@@ -159,7 +160,7 @@ export default function HomePage() {
 
           {/* Subtitle */}
           <p className="max-w-3xl mx-auto text-sm sm:text-base lg:text-lg theme-text-muted leading-relaxed text-balance">
-            {brand.heroSubtitle}
+            {keepViCompounds(brand.heroSubtitle)}
           </p>
 
           {/* Key Stats Row */}
@@ -172,7 +173,9 @@ export default function HomePage() {
                 <div className="text-2xl sm:text-3xl font-extrabold text-tomcat-blend">
                   {st.value}
                 </div>
-                <div className="text-xs theme-text-muted font-medium mt-1">{st.label}</div>
+                <div className="text-xs theme-text-muted font-medium mt-1">
+                  {keepViCompounds(st.label)}
+                </div>
               </div>
             ))}
           </div>
@@ -352,17 +355,22 @@ export default function HomePage() {
         <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600/20 text-blue-400 border border-blue-500/30">
-              Giải Pháp Cho Doanh Nghiệp & Cá Nhân
+              Giải Pháp Cho Doanh Nghiệp &amp; Cá Nhân
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
-              <span className="block">Đồng Hành Chuyển Đổi &amp; Ứng Dụng</span>
+              <span className="block">
+                <span className="whitespace-nowrap">Đồng Hành</span>{" "}
+                <span className="whitespace-nowrap">Chuyển Đổi &amp;</span>{" "}
+                <span className="whitespace-nowrap">Ứng Dụng</span>
+              </span>
               <span className="mt-1 block text-tomcat-blend whitespace-nowrap">
                 AI Thực Chiến
               </span>
             </h2>
             <p className="text-sm sm:text-base theme-text-muted max-w-2xl mx-auto text-balance">
-              Thiết kế lộ trình đào tạo, xây dựng hệ thống AI Agent tự động hóa quy trình giúp doanh nghiệp và{" "}
-              <span className="whitespace-nowrap">cá nhân bứt phá năng suất.</span>
+              {keepViCompounds(
+                "Thiết kế lộ trình đào tạo, xây dựng hệ thống AI Agent tự động hóa quy trình giúp doanh nghiệp và cá nhân bứt phá năng suất."
+              )}
             </p>
           </div>
 
@@ -374,20 +382,20 @@ export default function HomePage() {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-900/60 text-blue-200 border border-blue-700/60">
-                      {srv.targetAudience}
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-900/60 text-blue-200 border border-blue-700/60 whitespace-nowrap">
+                      {keepViCompounds(srv.targetAudience)}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-orange-500/20 text-orange-400">
-                      {srv.badge}
+                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-orange-500/20 text-orange-400 whitespace-nowrap shrink-0">
+                      {keepViCompounds(srv.badge)}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-extrabold group-hover:text-orange-400 transition">
-                    {srv.title}
+                  <h3 className="text-lg sm:text-xl font-extrabold group-hover:text-orange-400 transition leading-snug">
+                    {keepViCompounds(srv.title)}
                   </h3>
 
                   <p className="text-xs sm:text-sm theme-text-muted leading-relaxed">
-                    {srv.description}
+                    {keepViCompounds(srv.description)}
                   </p>
 
                   <ul className="space-y-2.5 pt-2">
@@ -423,14 +431,16 @@ export default function HomePage() {
               AI Tools Directory
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
-              Công Cụ AI Tôi Sử Dụng &amp;{" "}
+              <span className="whitespace-nowrap">Công Cụ AI</span>{" "}
+              <span className="whitespace-nowrap">Tôi Sử Dụng &amp;</span>{" "}
               <span className="text-tomcat-blend whitespace-nowrap">
                 Khuyên Dùng
               </span>
             </h2>
             <p className="text-sm sm:text-base theme-text-muted max-w-2xl mx-auto text-balance">
-              Danh sách các công cụ AI tốt nhất phục vụ lập trình, sản xuất video, giọng nói, nghiên cứu và{" "}
-              <span className="whitespace-nowrap">tự động hóa công việc hàng ngày.</span>
+              {keepViCompounds(
+                "Danh sách các công cụ AI tốt nhất phục vụ lập trình, sản xuất video, giọng nói, nghiên cứu và tự động hóa công việc hàng ngày."
+              )}
             </p>
           </div>
 
@@ -533,18 +543,20 @@ export default function HomePage() {
           <div className="rounded-3xl bg-gradient-to-br from-[#081229] via-[#050811] to-[#1f120b] border border-blue-800/70 p-6 sm:p-10 space-y-8 shadow-2xl">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
               <div className="space-y-3 max-w-2xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-xs font-bold">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>THƯ VIỆN CLAUDE CODE, ANTIGRAVITY & AI WORKFLOWS</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-[11px] sm:text-xs font-bold">
+                  <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                  <span>THƯ VIỆN CLAUDE CODE, ANTIGRAVITY &amp; AI WORKFLOWS</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                <h2 className="text-xl sm:text-4xl font-extrabold text-white leading-tight whitespace-nowrap">
                   AI{" "}
-                  <span className="text-tomcat-blend whitespace-nowrap">
+                  <span className="text-tomcat-blend">
                     TEMPLATES &amp; SKILLS
                   </span>
                 </h2>
                 <p className="text-sm sm:text-base text-slate-300">
-                  Khám phá, sao chép và tích hợp ngay các bộ cấu hình Skills, Subagents, Prompts, MCPs và Workflows thực chiến cho dự án của bạn.
+                  {keepViCompounds(
+                    "Khám phá, sao chép và tích hợp ngay các bộ cấu hình Skills, Subagents, Prompts, MCPs và Workflows thực chiến cho dự án của bạn."
+                  )}
                 </p>
               </div>
 
@@ -612,13 +624,15 @@ export default function HomePage() {
                 <span>OPEN SOURCE AI DIRECTORY</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
-                Kho GitHub Repo{" "}
+                <span className="whitespace-nowrap">Kho GitHub Repo</span>{" "}
                 <span className="text-tomcat-blend whitespace-nowrap">
                   Hàng Đầu
                 </span>
               </h2>
               <p className="text-sm sm:text-base theme-text-muted">
-                Tổng hợp các dự án mã nguồn mở tốt nhất về AI Agent, Vibe Coding, RAG, MCP và Tự động hóa.
+                {keepViCompounds(
+                  "Tổng hợp các dự án mã nguồn mở tốt nhất về AI Agent, Vibe Coding, RAG, MCP và Tự động hóa."
+                )}
               </p>
             </div>
 
@@ -692,16 +706,18 @@ export default function HomePage() {
         <section id="gpt-doc-quyen" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-500/20 text-orange-400 border border-orange-500/30">
-              Custom GPTs & Specialized Agents
+              Custom GPTs &amp; Specialized Agents
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
-              Bộ GPT &amp; Trợ Lý AI{" "}
+              <span className="whitespace-nowrap">Bộ GPT &amp; Trợ Lý AI</span>{" "}
               <span className="text-tomcat-blend whitespace-nowrap">
                 Độc Quyền
               </span>
             </h2>
             <p className="text-sm sm:text-base theme-text-muted">
-              Các trợ lý AI đã được huấn luyện sẵn quy trình chuyên sâu của {brand.brandName} cho Vibe Coding, Kịch bản Video, Tự động hóa và Nhân bản văn phong.
+              {keepViCompounds(
+                `Các trợ lý AI đã được huấn luyện sẵn quy trình chuyên sâu của ${brand.brandName} cho Vibe Coding, Kịch bản Video, Tự động hóa và Nhân bản văn phong.`
+              )}
             </p>
           </div>
 
@@ -713,17 +729,19 @@ export default function HomePage() {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-900/60 text-blue-200">
-                      {gpt.category}
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-900/60 text-blue-200 whitespace-nowrap">
+                      {keepViCompounds(gpt.category)}
                     </span>
-                    <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/30">
-                      {gpt.badge}
+                    <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/30 whitespace-nowrap shrink-0">
+                      {keepViCompounds(gpt.badge)}
                     </span>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-extrabold">{gpt.name}</h3>
+                  <h3 className="text-base sm:text-xl font-extrabold leading-snug">
+                    {keepViCompounds(gpt.name)}
+                  </h3>
                   <p className="text-xs sm:text-sm theme-text-muted leading-relaxed">
-                    {gpt.description}
+                    {keepViCompounds(gpt.description)}
                   </p>
 
                   <ul className="space-y-2 pt-1">
@@ -771,7 +789,7 @@ export default function HomePage() {
                 Video Tutorials
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
-                Video Hướng Dẫn{" "}
+                <span className="whitespace-nowrap">Video Hướng Dẫn</span>{" "}
                 <span className="text-tomcat-blend whitespace-nowrap">
                   Mới Nhất
                 </span>
@@ -821,11 +839,11 @@ export default function HomePage() {
                     </span>
                     <span className="text-xs theme-text-muted">{featuredVideo.views}</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-extrabold leading-snug">
-                    {featuredVideo.title}
+                  <h3 className="text-lg sm:text-2xl font-extrabold leading-snug">
+                    {keepViCompounds(featuredVideo.title)}
                   </h3>
                   <p className="text-xs sm:text-sm theme-text-muted leading-relaxed">
-                    {featuredVideo.description}
+                    {keepViCompounds(featuredVideo.description)}
                   </p>
                 </div>
 
@@ -867,12 +885,12 @@ export default function HomePage() {
                     </span>
                   </div>
                   <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
-                    <h3 className="font-bold text-sm line-clamp-2 group-hover:text-orange-400 transition">
-                      {vid.title}
+                    <h3 className="font-bold text-sm line-clamp-2 group-hover:text-orange-400 transition leading-snug">
+                      {keepViCompounds(vid.title)}
                     </h3>
                     <div className="flex items-center justify-between text-[11px] theme-text-muted pt-2 border-t theme-border">
-                      <span>{vid.views}</span>
-                      <span>{vid.publishedAt}</span>
+                      <span>{keepViCompounds(vid.views)}</span>
+                      <span>{keepViCompounds(vid.publishedAt)}</span>
                     </div>
                   </div>
                 </a>
@@ -890,14 +908,16 @@ export default function HomePage() {
               100% Miễn Phí · Học Từ Con Số 0
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
-              Khóa Học AI Thực Chiến{" "}
+              <span className="whitespace-nowrap">Khóa Học</span>{" "}
+              <span className="whitespace-nowrap">AI Thực Chiến</span>{" "}
               <span className="text-tomcat-blend whitespace-nowrap">
                 4 Cấp Độ
               </span>
             </h2>
             <p className="text-sm sm:text-base theme-text-muted max-w-2xl mx-auto text-balance">
-              18 bài học được thiết kế bài bản giúp bạn làm chủ tư duy Prompt, thiết lập không gian làm việc AI, huấn luyện văn phong và{" "}
-              <span className="whitespace-nowrap">tự động hóa công việc.</span>
+              {keepViCompounds(
+                "18 bài học được thiết kế bài bản giúp bạn làm chủ tư duy Prompt, thiết lập không gian làm việc AI, huấn luyện văn phong và tự động hóa công việc."
+              )}
             </p>
           </div>
 
@@ -908,17 +928,21 @@ export default function HomePage() {
                 className="theme-surface border rounded-3xl p-6 sm:p-7 flex flex-col justify-between hover:border-orange-500 transition shadow-lg"
               >
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/30">
-                      {lvl.badge}
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-400 border border-orange-500/30 whitespace-nowrap">
+                      {keepViCompounds(lvl.badge)}
                     </span>
-                    <span className="text-xs font-semibold text-blue-400">
+                    <span className="text-xs font-semibold text-blue-400 whitespace-nowrap">
                       {lvl.lessonsCount} bài học · {lvl.duration}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-extrabold">{lvl.title}</h3>
-                  <p className="text-xs sm:text-sm theme-text-muted">{lvl.subtitle}</p>
+                  <h3 className="text-lg sm:text-xl font-extrabold leading-snug">
+                    {keepViCompounds(lvl.title)}
+                  </h3>
+                  <p className="text-xs sm:text-sm theme-text-muted leading-relaxed">
+                    {keepViCompounds(lvl.subtitle)}
+                  </p>
 
                   <div className="space-y-2 pt-2">
                     {lvl.lessons.slice(0, 3).map((ls, idx) => (
@@ -1019,7 +1043,8 @@ export default function HomePage() {
                 Articles & Playbooks
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
-                Bài Viết &amp; Hướng Dẫn{" "}
+                <span className="whitespace-nowrap">Bài Viết &amp;</span>{" "}
+                <span className="whitespace-nowrap">Hướng Dẫn</span>{" "}
                 <span className="text-tomcat-blend whitespace-nowrap">
                   Chuyên Sâu
                 </span>
@@ -1067,11 +1092,11 @@ export default function HomePage() {
                   </div>
 
                   <div className="p-6 space-y-3">
-                    <h3 className="text-lg sm:text-xl font-extrabold group-hover:text-orange-400 transition leading-snug">
-                      {art.title}
+                    <h3 className="text-base sm:text-xl font-extrabold group-hover:text-orange-400 transition leading-snug">
+                      {keepViCompounds(art.title)}
                     </h3>
                     <p className="text-xs sm:text-sm theme-text-muted leading-relaxed line-clamp-3">
-                      {art.summary}
+                      {keepViCompounds(art.summary)}
                     </p>
                   </div>
                 </div>
@@ -1098,8 +1123,10 @@ export default function HomePage() {
                   Community
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight">
-                  Tham Gia Cộng Đồng{" "}
-                  <span className="text-tomcat-blend whitespace-nowrap">{brand.brandName}</span>
+                  <span className="whitespace-nowrap">Tham Gia Cộng Đồng</span>{" "}
+                  <span className="text-tomcat-blend whitespace-nowrap">
+                    {brand.brandName}
+                  </span>
                 </h2>
               </div>
 
@@ -1113,19 +1140,19 @@ export default function HomePage() {
                     className="group theme-surface border rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-orange-500 transition shadow-lg"
                   >
                     <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-900/60 text-blue-200">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-900/60 text-blue-200 whitespace-nowrap">
                           {com.platform}
                         </span>
-                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400">
-                          {com.membersCount}
+                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 whitespace-nowrap shrink-0">
+                          {keepViCompounds(com.membersCount)}
                         </span>
                       </div>
-                      <h3 className="text-xl font-extrabold group-hover:text-orange-400 transition">
-                        {com.name}
+                      <h3 className="text-lg sm:text-xl font-extrabold group-hover:text-orange-400 transition leading-snug">
+                        {keepViCompounds(com.name)}
                       </h3>
                       <p className="text-xs sm:text-sm theme-text-muted leading-relaxed">
-                        {com.description}
+                        {keepViCompounds(com.description)}
                       </p>
                     </div>
 

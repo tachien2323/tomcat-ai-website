@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import { Search, Star, GitFork, ArrowUpRight } from "lucide-react";
 import { Github } from "@/components/BrandIcons";
 import { useSiteConfig } from "@/context/SiteConfigContext";
+import { keepViCompounds } from "@/utils/viText";
 
 export default function KhoRepoPage() {
   const { config } = useSiteConfig();
@@ -42,14 +43,16 @@ export default function KhoRepoPage() {
           <Github className="w-4 h-4" />
           <span>OPEN SOURCE AI REPOSITORY VAULT</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-          Kho GitHub Repo{" "}
+        <h1 className="text-2xl sm:text-5xl font-extrabold text-white leading-tight">
+          <span className="whitespace-nowrap">Kho GitHub Repo</span>{" "}
           <span className="text-tomcat-blend whitespace-nowrap">
             Hàng Đầu
           </span>
         </h1>
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl text-balance">
-          Danh bạ các dự án mã nguồn mở chất lượng nhất về AI Agents, Vibe Coding, Workflow Automation, RAG, LLM và MCP được tuyển chọn bởi {config.brand.brandName}.
+          {keepViCompounds(
+            `Danh bạ các dự án mã nguồn mở chất lượng nhất về AI Agents, Vibe Coding, Workflow Automation, RAG, LLM và MCP được tuyển chọn bởi ${config.brand.brandName}.`
+          )}
         </p>
       </div>
 

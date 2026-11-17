@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { FileText, Search, Clock, Calendar, ChevronRight } from "lucide-react";
 import { useSiteConfig } from "@/context/SiteConfigContext";
+import { keepViCompounds } from "@/utils/viText";
 
 export default function BaiVietPage() {
   const { config } = useSiteConfig();
@@ -42,14 +43,16 @@ export default function BaiVietPage() {
           <FileText className="w-4 h-4" />
           <span>KNOWLEDGE BASE & PLAYBOOKS</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-          Bài Viết &amp; Playbook{" "}
+        <h1 className="text-2xl sm:text-5xl font-extrabold text-white leading-tight">
+          <span className="whitespace-nowrap">Bài Viết &amp; Playbook</span>{" "}
           <span className="text-tomcat-blend whitespace-nowrap">
             Ứng Dụng AI
           </span>
         </h1>
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl text-balance">
-          Chia sẻ kiến thức thực chiến, lộ trình AI Agent, kỹ thuật huấn luyện văn phong và các case study tự động hóa doanh nghiệp từ {config.brand.brandName}.
+          {keepViCompounds(
+            `Chia sẻ kiến thức thực chiến, lộ trình AI Agent, kỹ thuật huấn luyện văn phong và các case study tự động hóa doanh nghiệp từ ${config.brand.brandName}.`
+          )}
         </p>
       </div>
 
@@ -120,11 +123,11 @@ export default function BaiVietPage() {
               </div>
 
               <div className="p-6 space-y-3">
-                <h2 className="text-xl font-extrabold group-hover:text-orange-400 transition leading-snug">
-                  {art.title}
+                <h2 className="text-base sm:text-xl font-extrabold group-hover:text-orange-400 transition leading-snug">
+                  {keepViCompounds(art.title)}
                 </h2>
                 <p className="text-xs sm:text-sm theme-text-muted leading-relaxed">
-                  {art.summary}
+                  {keepViCompounds(art.summary)}
                 </p>
               </div>
             </div>

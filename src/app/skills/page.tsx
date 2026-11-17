@@ -16,6 +16,7 @@ import {
 import { useSiteConfig } from "@/context/SiteConfigContext";
 import { SkillTemplateItem } from "@/types/site";
 import { SkillDetailModal } from "@/components/SkillDetailModal";
+import { keepViCompounds } from "@/utils/viText";
 
 const CATEGORY_LIST: {
   id: "Tất cả" | SkillTemplateItem["category"];
@@ -117,14 +118,16 @@ export default function SkillsPage() {
             </div>
 
             <div className="space-y-2">
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              <h1 className="text-xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight whitespace-nowrap">
                 AI{" "}
-                <span className="text-tomcat-blend whitespace-nowrap">
+                <span className="text-tomcat-blend">
                   TEMPLATES &amp; SKILLS
                 </span>
               </h1>
               <p className="text-sm sm:text-base text-slate-300 max-w-2xl text-balance">
-                Khám phá, chọn và kết hợp các cấu hình AI, System Prompts, Subagents và MCP hữu ích cho công việc và dự án của bạn.
+                {keepViCompounds(
+                  "Khám phá, chọn và kết hợp các cấu hình AI, System Prompts, Subagents và MCP hữu ích cho công việc và dự án của bạn."
+                )}
               </p>
             </div>
 
@@ -205,13 +208,13 @@ export default function SkillsPage() {
                     <h3 className="font-mono font-extrabold text-lg group-hover:text-orange-400 transition">
                       {sk.name}
                     </h3>
-                    <p className="text-xs sm:text-sm font-bold text-blue-400 mt-0.5">
-                      {sk.titleVi}
+                    <p className="text-xs sm:text-sm font-bold text-blue-400 mt-0.5 leading-snug">
+                      {keepViCompounds(sk.titleVi)}
                     </p>
                   </div>
 
                   <p className="text-xs sm:text-sm theme-text-muted leading-relaxed">
-                    {sk.description}
+                    {keepViCompounds(sk.description)}
                   </p>
                 </div>
 

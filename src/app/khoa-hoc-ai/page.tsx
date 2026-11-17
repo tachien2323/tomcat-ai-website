@@ -3,6 +3,7 @@
 import React from "react";
 import { BookOpen, Play, CheckCircle2, Sparkles } from "lucide-react";
 import { useSiteConfig } from "@/context/SiteConfigContext";
+import { keepViCompounds } from "@/utils/viText";
 
 export default function KhoaHocAiPage() {
   const { config } = useSiteConfig();
@@ -16,8 +17,12 @@ export default function KhoaHocAiPage() {
           <BookOpen className="w-4 h-4" />
           <span>CHƯƠNG TRÌNH ĐÀO TẠO CỘNG ĐỒNG MIỄN PHÍ</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-          <span className="block">Làm Chủ AI Thực Chiến Từ Con Số 0</span>
+        <h1 className="text-2xl sm:text-5xl font-extrabold text-white leading-tight">
+          <span className="block">
+            <span className="whitespace-nowrap">Làm Chủ</span>{" "}
+            <span className="whitespace-nowrap">AI Thực Chiến</span>{" "}
+            <span className="whitespace-nowrap">Từ Con Số 0</span>
+          </span>
           <span className="mt-1 block">
             Cùng{" "}
             <span className="text-tomcat-blend whitespace-nowrap">
@@ -26,7 +31,9 @@ export default function KhoaHocAiPage() {
           </span>
         </h1>
         <p className="text-sm sm:text-base text-slate-300 max-w-3xl mx-auto text-balance">
-          Lộ trình 18 bài học chia theo 4 cấp độ từ Nhập môn Prompt Engineering, Thiết lập Không gian AI, Huấn luyện Văn phong đến Vibe Coding &amp; Tự động hóa Doanh nghiệp.
+          {keepViCompounds(
+            "Lộ trình 18 bài học chia theo 4 cấp độ từ Nhập môn Prompt Engineering, Thiết lập Không gian AI, Huấn luyện Văn phong đến Vibe Coding & Tự động hóa Doanh nghiệp."
+          )}
         </p>
       </div>
 
@@ -39,12 +46,16 @@ export default function KhoaHocAiPage() {
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b theme-border pb-5">
               <div className="space-y-1.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-400">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  {lvl.badge}
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-orange-500/20 text-orange-400 whitespace-nowrap">
+                  <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                  {keepViCompounds(lvl.badge)}
                 </span>
-                <h2 className="text-xl sm:text-2xl font-extrabold">{lvl.title}</h2>
-                <p className="text-xs sm:text-sm theme-text-muted">{lvl.subtitle}</p>
+                <h2 className="text-lg sm:text-2xl font-extrabold leading-snug">
+                  {keepViCompounds(lvl.title)}
+                </h2>
+                <p className="text-xs sm:text-sm theme-text-muted">
+                  {keepViCompounds(lvl.subtitle)}
+                </p>
               </div>
               <div className="text-xs font-bold px-4 py-2 rounded-xl bg-blue-950/70 text-blue-200 border border-blue-800/60 shrink-0">
                 {lvl.lessonsCount} Bài học · {lvl.duration}

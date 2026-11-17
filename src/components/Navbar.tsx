@@ -112,7 +112,7 @@ export function Navbar() {
           </Link>
 
           {/* Right Action Controls */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             {/* Theme Toggle */}
             <button
               type="button"
@@ -123,7 +123,7 @@ export function Navbar() {
                   : "Chuyển sang giao diện Tối (Dark Mode)"
               }
               aria-label="Chuyển đổi giao diện Sáng / Tối"
-              className="w-10 h-10 rounded-xl border border-blue-800/70 bg-[#0b152c] hover:bg-blue-950/90 hover:border-orange-500/60 flex items-center justify-center text-blue-200 hover:text-orange-400 transition cursor-pointer"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-blue-800/70 bg-[#0b152c] hover:bg-blue-950/90 hover:border-orange-500/60 flex items-center justify-center text-blue-200 hover:text-orange-400 transition cursor-pointer shrink-0"
             >
               {renderedScheme === "dark" ? (
                 <Sun className="w-4 h-4 text-orange-400" />
@@ -136,9 +136,9 @@ export function Navbar() {
             {features.skillsHub && (
               <Link
                 href="/skills"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-amber-500 text-white shadow-lg shadow-orange-600/30 transition"
+                className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-amber-500 text-white shadow-lg shadow-orange-600/30 transition whitespace-nowrap shrink-0"
               >
-                <Sparkles className="w-3.5 h-3.5" />
+                <Sparkles className="w-3.5 h-3.5 shrink-0" />
                 <span>AI Templates</span>
               </Link>
             )}
@@ -148,7 +148,7 @@ export function Navbar() {
               type="button"
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-label="Mở menu điều hướng"
-              className="lg:hidden w-10 h-10 rounded-xl border border-blue-800/70 bg-[#0b152c] flex items-center justify-center text-slate-200"
+              className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-blue-800/70 bg-[#0b152c] flex items-center justify-center text-slate-200 shrink-0"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>

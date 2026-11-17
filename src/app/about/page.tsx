@@ -12,6 +12,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { useSiteConfig } from "@/context/SiteConfigContext";
+import { keepViCompounds } from "@/utils/viText";
 
 const COMP_ICONS = [Cpu, Code2, Briefcase, GraduationCap];
 
@@ -116,7 +117,7 @@ export default function AboutPage() {
             Core Competencies
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
-            Năng Lực Chuyên Môn &amp;{" "}
+            <span className="whitespace-nowrap">Năng Lực Chuyên Môn &amp;</span>{" "}
             <span className="text-tomcat-blend whitespace-nowrap">Hệ Sinh Thái AI</span>
           </h2>
         </div>
@@ -132,7 +133,9 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-2xl bg-tomcat-blend flex items-center justify-center text-slate-950 shadow-md">
                   <Icon className="w-6 h-6 stroke-[2.2]" />
                 </div>
-                <h3 className="text-xl font-extrabold">{comp.title}</h3>
+                <h3 className="text-lg sm:text-xl font-extrabold leading-snug">
+                  {keepViCompounds(comp.title)}
+                </h3>
                 <ul className="space-y-2.5">
                   {comp.items.map((it, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm">
