@@ -2,12 +2,28 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Coffee, Sparkles, ArrowUpRight } from "lucide-react";
 import { useSiteConfig } from "@/context/SiteConfigContext";
 
 export function FloatingWidgets() {
   const { config } = useSiteConfig();
   const { features, brand } = config;
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const targetId = features.donation ? "donate" : "contact";
+
+  const handleCoffeeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", `#${targetId}`);
+    } else if (pathname !== "/") {
+      router.push(`/#${targetId}`);
+    }
+  };
 
   return (
     <>
@@ -43,8 +59,9 @@ export function FloatingWidgets() {
       {features.floatingCoffee && (
         <div className="fixed bottom-3 right-3 sm:bottom-4 sm:right-4 z-30">
           <a
-            href={features.donation ? "#donate" : "#contact"}
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white font-bold text-xs sm:text-sm shadow-xl shadow-orange-600/30 border border-orange-300/30 transition whitespace-nowrap"
+            href={`/#${targetId}`}
+            onClick={handleCoffeeClick}
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white font-bold text-xs sm:text-sm shadow-xl shadow-orange-600/30 border border-orange-300/30 transition whitespace-nowrap cursor-pointer"
           >
             <Coffee className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
             <span>Ủng hộ 1 ly cafe</span>

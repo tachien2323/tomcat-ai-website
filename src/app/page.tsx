@@ -354,7 +354,7 @@ export default function HomePage() {
 
       {/* 3. B2B & B2C SERVICES / SOLUTIONS SECTION */}
       {features.b2bServices && enabledServices.length > 0 && (
-        <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <section id="services" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600/20 text-blue-400 border border-blue-500/30">
               Giải Pháp Cho Doanh Nghiệp &amp; Cá Nhân
@@ -427,7 +427,7 @@ export default function HomePage() {
 
       {/* 4. CURATED AI TOOLS DIRECTORY */}
       {features.aiTools && enabledTools.length > 0 && (
-        <section id="tools" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <section id="tools" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-500/20 text-orange-400 border border-orange-500/30">
               AI Tools Directory
@@ -705,7 +705,7 @@ export default function HomePage() {
 
       {/* 7. EXCLUSIVE CUSTOM GPTS & AI AGENTS */}
       {features.customGpts && enabledGpts.length > 0 && (
-        <section id="gpt-doc-quyen" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <section id="gpt-doc-quyen" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-500/20 text-orange-400 border border-orange-500/30">
               Custom GPTs &amp; Specialized Agents
@@ -784,7 +784,7 @@ export default function HomePage() {
 
       {/* 8. LATEST VIDEOS SECTION */}
       {features.latestVideos && enabledVideos.length > 0 && (
-        <section id="videos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <section id="videos" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2">
               <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/30">
@@ -1117,7 +1117,7 @@ export default function HomePage() {
 
       {/* 12. COMMUNITIES & OMNICHANNEL PRESENCE */}
       {(features.community || features.omnichannel) && (
-        <section id="community" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <section id="community" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {features.community && enabledCommunities.length > 0 && (
             <div className="space-y-6">
               <div className="text-center max-w-2xl mx-auto space-y-2">
@@ -1207,7 +1207,7 @@ export default function HomePage() {
 
       {/* 13. DONATION / BUY ME A COFFEE SECTION */}
       {features.donation && (
-        <section id="donate" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="donate" className="scroll-mt-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-gradient-to-br from-[#0b162f] via-[#070d1c] to-[#1f1108] border border-orange-500/40 p-6 sm:p-10 shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-7 space-y-4">
@@ -1270,7 +1270,7 @@ export default function HomePage() {
 
       {/* 14. CONTACT & CONSULTATION SECTION */}
       {features.contactSection && (
-        <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="contact" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="theme-surface border rounded-3xl p-6 sm:p-10 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-5 space-y-6">
               <div className="space-y-2">
