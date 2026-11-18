@@ -1,11 +1,36 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Copy, Check, Terminal, Sparkles, X, Layers } from "lucide-react";
-import { SkillTemplateItem } from "@/types/site";
+import {
+  Copy,
+  Check,
+  Terminal,
+  Sparkles,
+  X,
+  Layers,
+  ArrowUpRight,
+  TrendingUp,
+} from "lucide-react";
+import { Github } from "@/components/BrandIcons";
+
+export interface SkillModalData {
+  id: string;
+  name: string;
+  titleVi?: string;
+  category: string;
+  tag: string;
+  level?: string;
+  downloadsCount: string;
+  description: string;
+  installCommand: string;
+  promptContent?: string;
+  useCase?: string;
+  githubUrl?: string;
+  source?: string;
+}
 
 interface SkillDetailModalProps {
-  skill: SkillTemplateItem | null;
+  skill: SkillModalData | null;
   onClose: () => void;
 }
 
@@ -19,6 +44,8 @@ export function SkillDetailModal({ skill, onClose }: SkillDetailModalProps) {
     if (!dialog) return;
 
     if (skill) {
+      setCopiedCmd(false);
+      setCopiedPrompt(false);
       if (!dialog.open) {
         dialog.showModal();
       }
@@ -38,7 +65,7 @@ export function SkillDetailModal({ skill, onClose }: SkillDetailModalProps) {
 
     dialog.addEventListener("close", handleClose);
 
-    // Fallback for browsers without native closedby="any" support per modern-web-guidance
+    // Fallback for browsers without native closedby="any" support
     let cleanupLightDismiss: (() => void) | undefined;
     if (!("closedBy" in HTMLDialogElement.prototype)) {
       const outside = (e: PointerEvent, dlg: HTMLDialogElement) => {
@@ -81,7 +108,7 @@ export function SkillDetailModal({ skill, onClose }: SkillDetailModalProps) {
   };
 
   const copyPrompt = async () => {
-    if (!skill) return;
+    if (!skill?.promptContent) return;
     await navigator.clipboard.writeText(skill.promptContent);
     setCopiedPrompt(true);
     setTimeout(() => setCopiedPrompt(false), 2000);
@@ -92,12 +119,12 @@ export function SkillDetailModal({ skill, onClose }: SkillDetailModalProps) {
       ref={dialogRef}
       aria-labelledby="skill-modal-title"
       {...({ closedby: "any" } as React.DialogHTMLAttributes<HTMLDialogElement>)}
-      className="m-auto w-full max-w-2xl rounded-3xl bg-[#081024] text-slate-100 border border-blue-800/80 shadow-2xl p-0 open:block"
+      className="m-auto w-[calc(100%-2rem)] max-w-2xl rounded-3xl bg-[#081024] text-slate-100 border border-blue-800/80 shadow-2xl p-0 open:block"
     >
       {skill && (
-        <div className="p-6 sm:p-8 space-y-6">
+        <div className="p-6 sm:p-8 space-y-6 max-h-[85vh] overflow-y-auto">
           <div className="flex items-start justify-between gap-4">
-            <div className="space-y-2">
+            <div className="space-y-2 min-w-0">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-400 border border-orange-500/30">
                   {skill.category}
@@ -105,17 +132,41 @@ export function SkillDetailModal({ skill, onClose }: SkillDetailModalProps) {
                 <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-blue-900/60 text-blue-200 border border-blue-700/50">
                   {skill.tag}
                 </span>
-                <span className="text-xs text-emerald-400 font-semibold">
-                  ↓ {skill.downloadsCount} lượt dùng
+                <span className="inline-flex items-center gap-1 text-xs text-emerald-400 font-semibold">
+                  <TrendingUp className="w-3.5 h-3.5" />
+                  {skill.downloadsCount} lượt tải
                 </span>
               </div>
-              <h2 id="skill-modal-title" className="text-xl sm:text-2xl font-extrabold text-white">
-                {skill.titleVi}
-              </h2>
-              <p className="text-xs font-mono text-orange-300">{skill.name}</p>
+
+              {skill.titleVi ? (
+                <>
+                  <h2
+                    id="skill-modal-title"
+                    className="text-xl sm:text-2xl font-extrabold text-white break-words"
+                  >
+                    {skill.titleVi}
+                  </h2>
+                  <p className="text-xs font-mono text-orange-300 break-all">
+                    {skill.name}
+                  </p>
+                </>
+              ) : (
+                <h2
+                  id="skill-modal-title"
+                  className="text-xl sm:text-2xl font-mono font-extrabold text-white break-words"
+                >
+                  {skill.name}
+                </h2>
+              )}
+
+              {skill.source && (
+                <p className="text-xs font-mono text-slate-400">
+                  Nguồn: {skill.source}
+                </p>
+              )}
             </div>
 
-            <form method="dialog">
+            <form method="dialog" className="shrink-0">
               <button
                 type="submit"
                 value="close"
@@ -128,7 +179,9 @@ export function SkillDetailModal({ skill, onClose }: SkillDetailModalProps) {
             </form>
           </div>
 
-          <p className="text-sm text-slate-300 leading-relaxed">{skill.description}</p>
+          <p className="text-sm text-slate-300 leading-relaxed">
+            {skill.description}
+          </p>
 
           {/* Install CLI Command */}
           <div className="space-y-2">
@@ -140,9 +193,13 @@ export function SkillDetailModal({ skill, onClose }: SkillDetailModalProps) {
               <button
                 type="button"
                 onClick={copyCommand}
-                className="inline-flex items-center gap-1 text-orange-400 hover:text-orange-300 cursor-pointer"
+                className="inline-flex items-center gap-1 text-orange-400 hover:text-orange-300 font-bold cursor-pointer"
               >
-                {copiedCmd ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                {copiedCmd ? (
+                  <Check className="w-3.5 h-3.5" />
+                ) : (
+                  <Copy className="w-3.5 h-3.5" />
+                )}
                 <span>{copiedCmd ? "Đã sao chép!" : "Sao chép lệnh"}</span>
               </button>
             </div>
@@ -151,34 +208,63 @@ export function SkillDetailModal({ skill, onClose }: SkillDetailModalProps) {
             </pre>
           </div>
 
-          {/* Prompt / Skill Content */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between text-xs font-semibold text-blue-300">
-              <span className="flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
-                Nội dung Cấu hình / System Prompt
-              </span>
-              <button
-                type="button"
-                onClick={copyPrompt}
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold transition cursor-pointer"
-              >
-                {copiedPrompt ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copiedPrompt ? "Đã Copy Prompt!" : "Copy toàn bộ Prompt"}</span>
-              </button>
+          {/* Prompt / Skill Content (when present) */}
+          {skill.promptContent ? (
+            <div className="space-y-2">
+              <div className="flex items-center justify-between text-xs font-semibold text-blue-300">
+                <span className="flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+                  Nội dung Cấu hình / System Prompt
+                </span>
+                <button
+                  type="button"
+                  onClick={copyPrompt}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold transition cursor-pointer"
+                >
+                  {copiedPrompt ? (
+                    <Check className="w-3.5 h-3.5" />
+                  ) : (
+                    <Copy className="w-3.5 h-3.5" />
+                  )}
+                  <span>
+                    {copiedPrompt ? "Đã Copy Prompt!" : "Copy toàn bộ Prompt"}
+                  </span>
+                </button>
+              </div>
+              <pre className="p-4 rounded-2xl bg-[#040814] border border-blue-900/80 text-xs font-mono text-slate-200 whitespace-pre-wrap leading-relaxed max-h-60 overflow-y-auto">
+                {skill.promptContent}
+              </pre>
             </div>
-            <pre className="p-4 rounded-2xl bg-[#040814] border border-blue-900/80 text-xs font-mono text-slate-200 whitespace-pre-wrap leading-relaxed max-h-60 overflow-y-auto">
-              {skill.promptContent}
-            </pre>
+          ) : null}
+
+          {/* GitHub & Usage footer */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+            {skill.githubUrl && (
+              <a
+                href={skill.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white text-xs sm:text-sm font-bold shadow-lg transition"
+              >
+                <Github className="w-4 h-4" />
+                <span>Xem mã nguồn trên GitHub</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            )}
+            <span className="text-xs text-slate-400">
+              Tương thích Claude Code · Antigravity · ChatGPT Codex · Giấy phép MIT
+            </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-blue-950/40 border border-blue-800/50 flex items-start gap-3">
-            <Layers className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
-            <div className="text-xs text-slate-300">
-              <span className="font-bold text-white">Ứng dụng thực tế: </span>
-              {skill.useCase}
+          {skill.useCase && (
+            <div className="p-4 rounded-2xl bg-blue-950/40 border border-blue-800/50 flex items-start gap-3">
+              <Layers className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
+              <div className="text-xs text-slate-300">
+                <span className="font-bold text-white">Ứng dụng thực tế: </span>
+                {skill.useCase}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </dialog>

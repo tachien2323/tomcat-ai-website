@@ -585,7 +585,7 @@ export default function HomePage() {
                 href="/skills"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white font-bold text-xs sm:text-sm shadow-xl shadow-orange-600/30 transition shrink-0"
               >
-                <span>Mở toàn bộ Thư viện Skills ({enabledSkills.length}+)</span>
+                <span>Mở toàn bộ Thư viện Skills (2.055+)</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
