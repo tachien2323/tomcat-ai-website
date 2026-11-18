@@ -166,6 +166,22 @@ const jobs = [
     location: "San Francisco, CA | New York City, NY",
     url: "https://job-boards.greenhouse.io/anthropic/jobs/5428790008",
   },
+  {
+    id: "job-5057647008",
+    badge: "A",
+    title: "Applied AI Engineer, Enterprise",
+    company: "Anthropic",
+    location: "San Francisco, CA | New York City, NY",
+    url: "https://job-boards.greenhouse.io/anthropic/jobs/5057647008",
+  },
+  {
+    id: "job-5432575008",
+    badge: "A",
+    title: "Applied AI Engineer, Startups",
+    company: "Anthropic",
+    location: "London, UK",
+    url: "https://job-boards.greenhouse.io/anthropic/jobs/5432575008",
+  },
 ];
 
 const allJobsUrl = "https://job-boards.greenhouse.io/anthropic";

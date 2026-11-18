@@ -808,7 +808,7 @@ function SkillsInner() {
               </div>
 
               <div className="space-y-2.5">
-                {jobs.map((job) => (
+                {jobs.slice(0, 6).map((job, idx) => (
                   <a
                     key={job.id}
                     href={job.url}
@@ -816,8 +816,8 @@ function SkillsInner() {
                     rel="noreferrer"
                     className="group flex items-center gap-3 sm:gap-4 theme-surface border rounded-2xl p-3.5 sm:p-4 hover:border-orange-500 transition"
                   >
-                    <span className="w-9 h-9 rounded-xl bg-blue-950/80 border border-blue-800/70 flex items-center justify-center text-sm font-extrabold text-tomcat-blend shrink-0">
-                      {job.badge}
+                    <span className="w-9 text-center text-lg sm:text-xl font-extrabold text-tomcat-blend shrink-0">
+                      {String(idx + 1).padStart(2, "0")}
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="font-bold text-sm sm:text-base leading-snug truncate group-hover:text-orange-400 transition">
